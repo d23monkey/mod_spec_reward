@@ -39,7 +39,11 @@ public:
     {
         if (ModuleEnable && AnnouncerEnable)
         {
-            ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00Spec Reward |rmodule.");
+            uint32 loc = player->GetSession()->GetSessionDbLocaleIndex();
+            if(loc == 4)
+                ChatHandler(player->GetSession()).SendSysMessage("|cff00ff00本服务端已加载|r |cff00ccffTN奖励 |r|cff00ff00模块.|r");
+            else
+                ChatHandler(player->GetSession()).SendSysMessage("This server is running the |cff4CFF00Spec Reward |rmodule.");
         }
     }
 
